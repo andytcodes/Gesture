@@ -2,5 +2,5 @@
 
 This is the hand-datection code.
 
-#npm run start
+# npm run start
 - To run project
