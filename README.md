@@ -1,3 +1,3 @@
 # Gesture - FourCorners
 
-This is a JIRA Test
+This is the hand-datection code
