@@ -1,4 +1,4 @@
-# Gesture - FourCorners
+# Gesture - FourCorners - Hand-Detection Boilerplate
 
 This is the hand-datection code.
 
