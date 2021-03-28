@@ -1,50 +1,6 @@
-1. Install and Import Dependencies (tensorflow, react-webcam)
-1-1. npm install @tensorflow/tfjs @tensorflow-models/handpose react-webcam
-1-2. import * as tf from "@tensorflow/tfjs";
-1-3. import * as handpose from "@tensorflow-models/handpose";
-1-4. import Webcam from "react-webcam"; 
-1-5. import Reac, {useRef} from 'react';
-
-2. Setup webcam and canvas and Define references to those
-2-1. const webcamRef = useRef(null); const canvasRef = useRef(null);
-2-2. <Webcam ref={webcamRef}
-       style={{
-         position:"absolute",
-         marginLeft:"auto",
-         marginRight:"auto",
-         left:0,
-         right:0,
-         textAlign:"center",
-         zindex:9,
-         width:640,
-         height:480
-       }}
-       />
-
-       <canvas
-        ref={canvasRef}
-        style={{
-          position:"absolute",
-         marginLeft:"auto",
-         marginRight:"auto",
-         left:0,
-         right:0,
-         textAlign:"center",
-         zindex:9,
-         width:640,
-         height:480
-        }}/>
-
-3. Load handpose
-3-1.const runHandpose = async () => {
-    const net = await handpose.load()
-    console.log('Handpose model loaded.')
-  }
-  runHandpose();
-
-4. Detect Function
-4-1. App.js Line: 22 - 43
-4-2. Call this function in the runHandpose function 
-
-5. Drawing utilities from tensorflow
-6. Draw functions
+1. Install Fingerpose (npm install fingerpose)
+2. Add Use State (import React, {useRef, useState} from 'react';)
+3. Import emojis and finger pose import * as fp from "fingerpose";
+4. Update detect function for gesture handling
+5. Setup hook and emoji object
+6. Add emoji display to the screen

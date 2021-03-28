@@ -1,3 +1,5 @@
-# Gesture - FourCorners
+# Gesture - FourCorners - Gesture Recognition
 
-This is a JIRA Test
+To run:
+1. npm install
+2. npm rum start
