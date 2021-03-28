@@ -1,4 +1,4 @@
-import Reac, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 //import logo from './logo.svg';
 import * as tf from "@tensorflow/tfjs";
 import * as handpose from "@tensorflow-models/handpose";
@@ -6,10 +6,17 @@ import Webcam from "react-webcam";
 import {drawHand} from "./utilities";
 import logo from "./images/Gesture_Logo_05.png";
 import './App.css';
+import * as fp from "fingerpose";
+import victory from "./images/victory.png";
+import thumbs_up from "./images/thumbs_up.png";
 
 function App() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
+
+  //Gestures
+  const [emoji, setEmoji] = useState([]);
+  const images = {thumbs_up:thumbs_up, victory:victory};
 
   //load handpose model
   const runHandpose = async () => {
@@ -42,7 +49,30 @@ function App() {
 
         // Make Detections
         const hand = await net.estimateHands(video);
-        console.log(hand);
+        //console.log(hand);
+
+        //Gesture Detection
+        if (hand.length > 0) {
+          const GE = new fp.GestureEstimator([
+            fp.Gestures.VictoryGesture,
+            fp.Gestures.ThumbsUpGesture,
+          ]);
+
+          const gesture = await GE.estimate(hand[0].landmarks, 4);
+
+          if (gesture.gestures !== undefined && gesture.gestures.length > 0) {  
+            const confidence = gesture.gestures.map(
+              (prediction) => prediction.confidence
+            );
+
+            const maxConfidence = confidence.indexOf(
+              Math.max.apply(null, confidence)
+            );
+
+            setEmoji(gesture.gestures[maxConfidence].name);
+            console.log(emoji);
+          }
+        }
 
         // Draw mesh
         const ctx = canvasRef.current.getContext("2d");
@@ -98,6 +128,23 @@ function App() {
          width:640,
          height:480
         }}/>
+        
+        {/* emoji set */}
+        {emoji !== null ? (
+          <img
+            src={images[emoji]}
+            style={{
+              position: "absolute",
+              marginLeft: "auto",
+              marginRight: "auto",
+              left: 400,
+              bottom: 500,
+              right: 0,
+              textAlign: "center",
+              height: 100,
+            }}
+          /> ) : ("")}
+
       </header>
     </div>
   );
