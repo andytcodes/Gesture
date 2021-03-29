@@ -6,4 +6,4 @@ To run:
 1. npm install
 2. npm run start
 
-![Demonstration](https://media.giphy.com/media/Ecn8wHiVqPfT5RMgGT/giphy.gif)
+![Demonstration](https://media.giphy.com/media/clg50IUTfjDiNcyA9j/giphy.gif)
