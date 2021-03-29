@@ -88,7 +88,7 @@ function App() {
       <img src={logo} alt="logo"
       style={{
         width:300,
-        paddingTop: 300,
+        paddingTop: 150,
         position:'fixed',
         marginLeft:"auto",
         marginRight:"auto",
