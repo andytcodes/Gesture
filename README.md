@@ -5,3 +5,5 @@ This is the hand-datection code. Do not push to this repository. <strong>Create 
 To run:
 1. npm install
 2. npm run start
+
+![Demonstration](https://media.giphy.com/media/clg50IUTfjDiNcyA9j/giphy.gif)
