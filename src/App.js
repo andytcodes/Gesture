@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
-import {Route, BrowserRouter as Router} from "react-router-dom";
+import {Route, BrowserRouter as Router, Link} from "react-router-dom";
 import Gesture from './Pages/Gesture';
 
 function App() {
   return(
     <Router>
+      <Link to="/Gesture">Gesture</Link>
       <Route path="/Gesture" component={Gesture}/>
     </Router>
   );
