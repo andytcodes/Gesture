@@ -7,7 +7,7 @@ function App() {
   return(
     <Router>
       <Link to="/Gesture">Gesture</Link>
-      <Route path="/Gesture" component={Gesture}/>
+      <Route path="/Gesture" exact component={Gesture}/>
     </Router>
   );
 }
