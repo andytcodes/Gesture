@@ -9,6 +9,14 @@ import '../App.css';
 import * as fp from "fingerpose";
 import victory from "../images/victory.png";
 import thumbs_up from "../images/thumbs_up.png";
+import alphabet_a from "../images/alphabet_a.png";
+import alphabet_b from "../images/alphabet_b.png";
+import alphabet_c from "../images/alphabet_c.png";
+import alphabet_d from "../images/alphabet_d.png";
+import {alphabet_A_Gesture} from "../GestureDefinitions/Alphabet/alphabet-a";
+import {alphabet_B_Gesture} from "../GestureDefinitions/Alphabet/alphabet-b";
+import {alphabet_C_Gesture} from "../GestureDefinitions/Alphabet/alphabet-c";
+import {alphabet_D_Gesture} from "../GestureDefinitions/Alphabet/alphabet-d";
 
 export default function Gesture() {
   const webcamRef = useRef(null);
@@ -16,7 +24,8 @@ export default function Gesture() {
 
   //Gestures
   const [emoji, setEmoji] = useState([]);
-  const images = {thumbs_up:thumbs_up, victory:victory};
+  const images = {thumbs_up:thumbs_up, victory:victory, 
+    A:alphabet_a, B:alphabet_b, C:alphabet_c, D:alphabet_d};
 
   //load handpose model
   const runHandpose = async () => {
@@ -25,7 +34,7 @@ export default function Gesture() {
     //loop and detect hands
     setInterval(() => {
       detect(net)
-    }, 50);
+    }, 100);
   }
 
   const detect = async (net) =>{
@@ -56,11 +65,18 @@ export default function Gesture() {
           const GE = new fp.GestureEstimator([
             fp.Gestures.VictoryGesture,
             fp.Gestures.ThumbsUpGesture,
+            //Adding custom gesture
+            alphabet_A_Gesture,
+            alphabet_B_Gesture,
+            alphabet_C_Gesture,
+            alphabet_D_Gesture
           ]);
 
           const gesture = await GE.estimate(hand[0].landmarks, 4);
 
-          if (gesture.gestures !== undefined && gesture.gestures.length > 0) {  
+          if (gesture.gestures !== undefined && gesture.gestures.length > 0) { 
+            console.log(gesture.gestures);
+
             const confidence = gesture.gestures.map(
               (prediction) => prediction.confidence
             );
