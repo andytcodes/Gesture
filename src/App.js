@@ -5,11 +5,13 @@ import Gesture from './Pages/Gesture';
 
 function App() {
   return(
-    <Router>
-      <Link to="/Gesture">Gesture</Link>
-      <Route path="/Gesture" exact component={Gesture}/>
-    </Router>
+    <>
+      <Router>
+        <Link to="/Gesture">Gesture</Link>
+        <Route path="/Gesture" exact component={Gesture}/>
+      </Router>
+    </>
   );
 }
-
+// <Gesture/>
 export default App;
