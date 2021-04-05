@@ -1,6 +1,0 @@
-1. Install Fingerpose (npm install fingerpose)
-2. Add Use State (import React, {useRef, useState} from 'react';)
-3. Import emojis and finger pose import * as fp from "fingerpose";
-4. Update detect function for gesture handling
-5. Setup hook and emoji object
-6. Add emoji display to the screen
