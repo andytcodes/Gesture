@@ -2,13 +2,13 @@ import firebase from "firebase/app";
 import "firebase/auth";
 
 const app = firebase.initializeApp({
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
-    databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
-    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGE_SENDER_ID,
-    appId: process.env.REACT_APP_FIREBASE_APP_ID
+    apiKey: "AIzaSyDObz0MaNJOCt5Z51vAqjf8sXit33Dfy1Y",
+    authDomain: "auth-gesture-development.firebaseapp.com",
+    databaseURL: "https://auth-gesture-development-default-rtdb.firebaseio.com",
+    projectId: "auth-gesture-development",
+    storageBucket: "auth-gesture-development.appspot.com",
+    messagingSenderId: "658132862661",
+    appId: "1:658132862661:web:fe3808be56377e9cca12ac"
 });
 
 export const auth = app.auth();
