@@ -88,8 +88,10 @@ export default function Gesture() {
   runHandpose();
 
   return (
+    <>
+    <link href="../styles/Gesture.css" type="text/stylesheet"/>
     <div className="App">
-      <img src={logo} alt="logo"
+      <img src={logo} alt="logo" id="logo"
       style={{
         width:300,
         paddingTop: 300,
@@ -101,7 +103,7 @@ export default function Gesture() {
       }}/>
       <header className="App-header">
 
-       <Webcam ref={webcamRef}
+       <Webcam ref={webcamRef} id="webcam"
        style={{
          position:"absolute",
          marginLeft:"auto",
@@ -151,5 +153,6 @@ export default function Gesture() {
 
       </header>
     </div>
+    </>
   );
 }
