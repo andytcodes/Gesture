@@ -7,25 +7,16 @@ import {drawHand} from "../utilities";
 import logo from "../images/Gesture_Logo_05.png";
 import '../App.css';
 import * as fp from "fingerpose";
-import victory from "../images/victory.png";
-import thumbs_up from "../images/thumbs_up.png";
-import alphabet_a from "../images/alphabet_a.png";
-import alphabet_b from "../images/alphabet_b.png";
-import alphabet_c from "../images/alphabet_c.png";
-import alphabet_d from "../images/alphabet_d.png";
-import {alphabet_A_Gesture} from "../GestureDefinitions/Alphabet/alphabet-a";
-import {alphabet_B_Gesture} from "../GestureDefinitions/Alphabet/alphabet-b";
-import {alphabet_C_Gesture} from "../GestureDefinitions/Alphabet/alphabet-c";
-import {alphabet_D_Gesture} from "../GestureDefinitions/Alphabet/alphabet-d";
+import alphabet from "../GestureDefinitions/Alphabet/AlphabetImports";
+import '../styles/Gesture.css';
 
 export default function Gesture() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
   //Gestures
-  const [emoji, setEmoji] = useState([]);
-  const images = {thumbs_up:thumbs_up, victory:victory, 
-    A:alphabet_a, B:alphabet_b, C:alphabet_c, D:alphabet_d};
+  const [pic, setPic] = useState([]);
+  const images = {A:alphabet.alphabet_a_img, B:alphabet.alphabet_b_img, C:alphabet.alphabet_c_img, D:alphabet.alphabet_d_img};
 
   //load handpose model
   const runHandpose = async () => {
@@ -63,13 +54,11 @@ export default function Gesture() {
         //Gesture Detection
         if (hand.length > 0) {
           const GE = new fp.GestureEstimator([
-            fp.Gestures.VictoryGesture,
-            fp.Gestures.ThumbsUpGesture,
-            //Adding custom gesture
-            alphabet_A_Gesture,
-            alphabet_B_Gesture,
-            alphabet_C_Gesture,
-            alphabet_D_Gesture
+            //Adding custom gestures
+            alphabet.alphabet_A_Gesture,
+            alphabet.alphabet_B_Gesture,
+            alphabet.alphabet_C_Gesture,
+            alphabet.alphabet_D_Gesture
           ]);
 
           const gesture = await GE.estimate(hand[0].landmarks, 4);
@@ -85,8 +74,8 @@ export default function Gesture() {
               Math.max.apply(null, confidence)
             );
 
-            setEmoji(gesture.gestures[maxConfidence].name);
-            console.log(emoji);
+            setPic(gesture.gestures[maxConfidence].name);
+            console.log(pic);
           }
         }
 
@@ -100,8 +89,9 @@ export default function Gesture() {
   runHandpose();
 
   return (
+    <>
     <div className="App">
-      <img src={logo} alt="logo"
+      <img src={logo} alt="logo" className="logo"
       style={{
         width:300,
         paddingTop: 300,
@@ -113,7 +103,7 @@ export default function Gesture() {
       }}/>
       <header className="App-header">
 
-       <Webcam ref={webcamRef}
+       <Webcam ref={webcamRef} id="webcam"
        style={{
          position:"absolute",
          marginLeft:"auto",
@@ -146,9 +136,9 @@ export default function Gesture() {
         }}/>
         
         {/* emoji set */}
-        {emoji !== null ? (
+        {pic !== null ? (
           <img
-            src={images[emoji]}
+            src={images[pic]}
             style={{
               position: "absolute",
               marginLeft: "auto",
@@ -163,5 +153,6 @@ export default function Gesture() {
 
       </header>
     </div>
+    </>
   );
 }
