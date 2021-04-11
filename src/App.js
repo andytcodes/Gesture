@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import {Route, BrowserRouter as Router, Link, Switch} from "react-router-dom";
+import {Route, BrowserRouter as Router, Switch} from "react-router-dom"; //Link
 import Gesture from './components/Gesture';
 import NavBar from './components/NavBar';
-import Home from './pages/home';
+import Home from './Pages/home';
 
 function App() {
   return(

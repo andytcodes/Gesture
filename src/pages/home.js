@@ -12,7 +12,7 @@ const Home = () => {
         height: '90vh'
       }}
     >
-      <img src={logo} style={{width:300}} />
+      <img src={logo} style={{width:300}} alt="Gesture Logo"/>
       <h1>Home</h1>
     </div>
   );

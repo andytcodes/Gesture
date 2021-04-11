@@ -139,6 +139,7 @@ export default function Gesture() {
         {pic !== null ? (
           <img
             src={images[pic]}
+            alt=""
             style={{
               position: "absolute",
               marginLeft: "auto",

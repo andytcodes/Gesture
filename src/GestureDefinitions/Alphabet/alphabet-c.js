@@ -1,5 +1,6 @@
 //Imports
-import {Finger, FingerCurl, FingerDirection, GestureDescription} from 'fingerpose'; 
+// Finger, FingerCurl, FingerDirection, GestureDescription
+import {Finger, FingerCurl, GestureDescription} from 'fingerpose'; 
 
 export const alphabet_C_Gesture = new GestureDescription('C');
 
