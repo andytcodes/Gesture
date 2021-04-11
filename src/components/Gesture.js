@@ -8,6 +8,7 @@ import logo from "../images/Gesture_Logo_05.png";
 import '../App.css';
 import * as fp from "fingerpose";
 import alphabet from "../GestureDefinitions/Alphabet/AlphabetImports";
+import '../styles/Gesture.css';
 
 export default function Gesture() {
   const webcamRef = useRef(null);
@@ -89,9 +90,8 @@ export default function Gesture() {
 
   return (
     <>
-    <link href="../styles/Gesture.css" type="text/stylesheet"/>
     <div className="App">
-      <img src={logo} alt="logo" id="logo"
+      <img src={logo} alt="logo" className="logo"
       style={{
         width:300,
         paddingTop: 300,
