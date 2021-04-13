@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/Gesture/static/css/main.f6210c01.chunk.css",
-    "main.js": "/Gesture/static/js/main.da6e30b5.chunk.js",
-    "main.js.map": "/Gesture/static/js/main.da6e30b5.chunk.js.map",
+    "main.js": "/Gesture/static/js/main.36ed78da.chunk.js",
+    "main.js.map": "/Gesture/static/js/main.36ed78da.chunk.js.map",
     "runtime-main.js": "/Gesture/static/js/runtime-main.77ab4ce6.js",
     "runtime-main.js.map": "/Gesture/static/js/runtime-main.77ab4ce6.js.map",
-    "static/js/2.684c87ba.chunk.js": "/Gesture/static/js/2.684c87ba.chunk.js",
-    "static/js/2.684c87ba.chunk.js.map": "/Gesture/static/js/2.684c87ba.chunk.js.map",
+    "static/js/2.3dea2b4d.chunk.js": "/Gesture/static/js/2.3dea2b4d.chunk.js",
+    "static/js/2.3dea2b4d.chunk.js.map": "/Gesture/static/js/2.3dea2b4d.chunk.js.map",
     "static/js/3.b7714df3.chunk.js": "/Gesture/static/js/3.b7714df3.chunk.js",
     "static/js/3.b7714df3.chunk.js.map": "/Gesture/static/js/3.b7714df3.chunk.js.map",
     "index.html": "/Gesture/index.html",
     "static/css/main.f6210c01.chunk.css.map": "/Gesture/static/css/main.f6210c01.chunk.css.map",
-    "static/js/2.684c87ba.chunk.js.LICENSE.txt": "/Gesture/static/js/2.684c87ba.chunk.js.LICENSE.txt",
+    "static/js/2.3dea2b4d.chunk.js.LICENSE.txt": "/Gesture/static/js/2.3dea2b4d.chunk.js.LICENSE.txt",
     "static/media/Gesture_Logo_05.8447b28e.png": "/Gesture/static/media/Gesture_Logo_05.8447b28e.png",
     "static/media/Gesture_Logo_Symbol.ab437df3.png": "/Gesture/static/media/Gesture_Logo_Symbol.ab437df3.png",
     "static/media/alphabet_a.ca35e087.png": "/Gesture/static/media/alphabet_a.ca35e087.png",
@@ -19,8 +19,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.77ab4ce6.js",
-    "static/js/2.684c87ba.chunk.js",
+    "static/js/2.3dea2b4d.chunk.js",
     "static/css/main.f6210c01.chunk.css",
-    "static/js/main.da6e30b5.chunk.js"
+    "static/js/main.36ed78da.chunk.js"
   ]
 }
