@@ -29,16 +29,16 @@ const BeginnerCategories = () => {
       gridTemplateRows: "155px 155px 155px",
       justifyContent: 'space-between'
     }}>
-      <a href="/learning-paths" style={{ textDecoration: "none" }}>
-        <Category style={{height: "134px"}}>Alphabet</Category>
+      <a href="/home/demo" style={{ textDecoration: "none" }}>
+        <Category style={{height: "134px"}}>Demo: I Love You</Category>
       </a>
+      <Category>Alphabets</Category>
       <Category>Numbers</Category>
       <Category>Greetings</Category>
       <Category>Appreciation</Category>
-      <Category>People</Category>
       <Category>Yes or No</Category>
       <Category>Everyday Items</Category>
-      <Category>Animals</Category>
+      <Category>Animals 1</Category>
       <Category>Weather</Category>
     </div>
   );

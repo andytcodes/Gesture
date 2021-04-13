@@ -4,24 +4,20 @@ import * as tf from "@tensorflow/tfjs";
 import * as handpose from "@tensorflow-models/handpose";
 import Webcam from "react-webcam";
 import {drawHand} from "../utilities";
-import logo from "../images/Gesture_Logo_05.png";
 import * as fp from "fingerpose";
 import alphabet from "../GestureDefinitions/Alphabet/AlphabetImports";
 import '../styles/Gesture.css';
-import {ILU_Gesture} from '../GestureDefinitions/Demo/iloveyou';
-import iloveyou from '../images/iloveyou.png';
+import { GreenPass, LightAccent } from './Colors';
 
-export default function Gesture() {
+export default function GestureTest() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
+  //Pass State
+  const [colorPass, setColorPass] = useState(LightAccent);
+
   //Gestures
-  const [pic, setPic] = useState([]);
-  const images = {A:alphabet.alphabet_a_img, B:alphabet.alphabet_b_img, 
-    C:alphabet.alphabet_c_img, D:alphabet.alphabet_d_img, E:alphabet.alphabet_e_img,
-    I:alphabet.alphabet_i_img, L:alphabet.alphabet_l_img, O:alphabet.alphabet_o_img, 
-    U:alphabet.alphabet_u_img, V:alphabet.alphabet_v_img, Y:alphabet.alphabet_y_img,
-    ILOVEYOU:iloveyou};
+ // const [pic, setPic] = useState([]);
 
   //load handpose model
   const runHandpose = async () => {
@@ -60,18 +56,7 @@ export default function Gesture() {
         if (hand.length > 0) {
           const GE = new fp.GestureEstimator([
             //Adding custom gestures
-            alphabet.alphabet_A_Gesture,
-            alphabet.alphabet_B_Gesture,
-            alphabet.alphabet_C_Gesture,
-            alphabet.alphabet_D_Gesture,
-            alphabet.alphabet_E_Gesture,
-            alphabet.alphabet_I_Gesture,
-            alphabet.alphabet_L_Gesture,
-            alphabet.alphabet_O_Gesture,
-            alphabet.alphabet_U_Gesture,
-            alphabet.alphabet_V_Gesture,
-            alphabet.alphabet_Y_Gesture,
-            ILU_Gesture
+            
           ]);
 
           const gesture = await GE.estimate(hand[0].landmarks, 4);
@@ -86,9 +71,9 @@ export default function Gesture() {
             const maxConfidence = confidence.indexOf(
               Math.max.apply(null, confidence)
             );
-
-            setPic(gesture.gestures[maxConfidence].name);
-            console.log(pic);
+             setColorPass(GreenPass); 
+            //setPic(gesture.gestures[maxConfidence].name);
+            //console.log();
           }
         }
 
@@ -103,20 +88,9 @@ export default function Gesture() {
 
   return (
     <div>
-      {/*<img src={logo} alt="logo" className="logo"
-      style={{
-        width:300,
-        paddingTop: 300,
-        position:'fixed',
-        marginLeft:"auto",
-        marginRight:"auto",
-        left:0,
-        right:0
-      }}/>*/}
-
        <Webcam ref={webcamRef} id="webcam"
        style={{
-        position:"absolute",
+         position:"absolute",
          marginLeft:"auto",
          marginRight:"auto",
          left:0,
@@ -132,7 +106,14 @@ export default function Gesture() {
        }}
        />
 
-       <canvas
+       <p style={{
+         textAlign: 'center',
+         fontFamily: 'Montserrat',
+         color: colorPass,
+         fontSize: '25px'
+       }}>Pass</p>
+
+        <canvas
         ref={canvasRef}
         style={{
           position:"absolute",
@@ -143,25 +124,9 @@ export default function Gesture() {
          textAlign:"center",
          zindex:9,
          width:640,
-         height:480
+         height:350
         }}/>
-        
-        {/* emoji set */}
-        {pic !== null ? (
-          <img
-            src={images[pic]}
-            style={{
-              position: 'absolute',
-              marginLeft: "auto",
-              marginRight: "auto",
-              left: 400,
-              bottom: 420,
-              right: 0,
-              zindex: 9,
-              textAlign: "center",
-              height: 100,
-            }}
-          /> ) : ("")}
     </div>
   );
 }
+
